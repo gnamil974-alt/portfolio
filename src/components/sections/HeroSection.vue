@@ -16,7 +16,7 @@
         </p>
 
         <div class="hero-brain-wrap">
-          <img src="/src/assets/brain_rainbow.svg" class="hero-brain-img" alt="" aria-hidden="true" />
+          <img src="../../assets/brain_rainbow.svg" class="hero-brain-img" alt="" aria-hidden="true" />
           <div class="hero-brain-shimmer" aria-hidden="true"></div>
         </div>
       </div>

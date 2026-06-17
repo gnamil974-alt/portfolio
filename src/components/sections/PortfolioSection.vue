@@ -76,12 +76,16 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import img01 from '../../assets/Portfolio_01.png'
+import img02 from '../../assets/Portfolio_02.png'
+import img03 from '../../assets/Portfolio_03.png'
+import img04 from '../../assets/Portfolio_04.png'
 
 const items = [
-  { id: 1, title: 'Integrated Business Platform', year: '2024', bg: '#ffffff', img: '/src/assets/Portfolio_01.png', imgPos: 'top', imgPad: '1rem', desc: '본 프로젝트는 기업 브랜드 컨셉을 기반으로 제작한 UI 디자인 시안입니다.\nAI 기반 이미지 생성 도구를 활용하여 컨셉 비주얼을 제작하였으며, 전체 레이아웃 및 UI 구성은 직접 기획하였습니다.' },
-  { id: 2, title: 'Bio & Pharma',   year: '2023', bg: '#ffffff', img: '/src/assets/Portfolio_02.png', imgPos: 'top', imgPad: '1rem', desc: '본 프로젝트는 바이오, 제약 브랜드 컨셉을 기반으로 제작한 UI 디자인 시안입니다.\nAI 기반 이미지 생성 도구를 활용하여 컨셉 비주얼을 제작하였으며, 전체 레이아웃 및 UI 구성은 직접 기획하였습니다.' },
-  { id: 3, title: 'Medical Clinic', year: '2022', bg: '#ffffff', img: '/src/assets/Portfolio_03.png', imgPos: 'top', imgPad: '1rem', desc: '본 프로젝트는 피부과 브랜드 컨셉을 기반으로 제작한 UI 디자인 시안입니다.\nAI 기반 이미지 생성 도구를 활용하여 컨셉 비주얼을 제작하였으며, 전체 레이아웃 및 UI 구성은 직접 기획하였습니다.' },
-  { id: 4, title: 'Financial',  year: '2022', bg: '#ffffff', img: '/src/assets/Portfolio_04.png', imgPos: 'top', imgPad: '1rem', desc: '본 프로젝트는 금융 브랜드 컨셉을 기반으로 제작한 UI 디자인 시안입니다.\nAI 기반 이미지 생성 도구를 활용하여 컨셉 비주얼을 제작하였으며, 전체 레이아웃 및 UI 구성은 직접 기획하였습니다.' },
+  { id: 1, title: 'Integrated Business Platform', year: '2024', bg: '#ffffff', img: img01, imgPos: 'top', imgPad: '1rem', desc: '본 프로젝트는 기업 브랜드 컨셉을 기반으로 제작한 UI 디자인 시안입니다.\nAI 기반 이미지 생성 도구를 활용하여 컨셉 비주얼을 제작하였으며, 전체 레이아웃 및 UI 구성은 직접 기획하였습니다.' },
+  { id: 2, title: 'Bio & Pharma',   year: '2023', bg: '#ffffff', img: img02, imgPos: 'top', imgPad: '1rem', desc: '본 프로젝트는 바이오, 제약 브랜드 컨셉을 기반으로 제작한 UI 디자인 시안입니다.\nAI 기반 이미지 생성 도구를 활용하여 컨셉 비주얼을 제작하였으며, 전체 레이아웃 및 UI 구성은 직접 기획하였습니다.' },
+  { id: 3, title: 'Medical Clinic', year: '2022', bg: '#ffffff', img: img03, imgPos: 'top', imgPad: '1rem', desc: '본 프로젝트는 피부과 브랜드 컨셉을 기반으로 제작한 UI 디자인 시안입니다.\nAI 기반 이미지 생성 도구를 활용하여 컨셉 비주얼을 제작하였으며, 전체 레이아웃 및 UI 구성은 직접 기획하였습니다.' },
+  { id: 4, title: 'Financial',      year: '2022', bg: '#ffffff', img: img04, imgPos: 'top', imgPad: '1rem', desc: '본 프로젝트는 금융 브랜드 컨셉을 기반으로 제작한 UI 디자인 시안입니다.\nAI 기반 이미지 생성 도구를 활용하여 컨셉 비주얼을 제작하였으며, 전체 레이아웃 및 UI 구성은 직접 기획하였습니다.' },
 ]
 
 const activeId  = ref(null)
