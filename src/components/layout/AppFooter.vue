@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <div class="container footer-inner">
-      <img src="../../assets/LUMA3.png" alt="Luma" class="footer-logo" />
+      <img src="../../assets/luma_logo_png.png" alt="Luma" class="footer-logo" />
       <p class="footer-copy">© {{ year }} LUMA. All rights reserved.</p>
     </div>
   </footer>
