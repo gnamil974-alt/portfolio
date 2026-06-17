@@ -1,29 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+/* Canela Text Trial — 폰트 파일을 src/assets/fonts/ 에 위치시켜 주세요 */
+@font-face {
+  font-family: 'Canela Text Trial';
+  src: url('./assets/fonts/CanelaText-Thin-Trial.woff2') format('woff2'),
+       url('./assets/fonts/CanelaText-Thin-Trial.woff')  format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Canela Text Trial';
+  src: url('./assets/fonts/CanelaText-Light-Trial.woff2') format('woff2'),
+       url('./assets/fonts/CanelaText-Light-Trial.woff')  format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Canela Text Trial';
+  src: url('./assets/fonts/CanelaText-Regular-Trial.woff2') format('woff2'),
+       url('./assets/fonts/CanelaText-Regular-Trial.woff')  format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Canela Text Trial';
+  src: url('./assets/fonts/CanelaText-LightItalic-Trial.woff2') format('woff2'),
+       url('./assets/fonts/CanelaText-LightItalic-Trial.woff')  format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
 
 /* ── CSS 변수 ── */
 :root {
-  --color-white: #FFFFFF;
-  --color-off-white: #F7F7F5;
-  --color-black: #0A0A0A;
-  --color-dark: #1A1A1A;
-  --color-gray: #6B6B6B;
-  --color-gray-light: #E5E5E3;
-  --color-green: #2A7A4F;
-  --color-green-light: #3D9965;
-  --color-green-muted: #EAF3EE;
+  --color-bg:      #fbf4e4;
+  --color-text:    #232323;
+  --color-accent:  #FF1B00;
+  --color-muted:   rgba(35, 35, 35, 0.45);
+  --color-border:  rgba(35, 35, 35, 0.15);
 
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', -apple-system, sans-serif;
-  --font-elegant: 'Cormorant Garamond', Georgia, serif;
+  --font-headline: 'Canela Text Trial', Georgia, serif;
+  --font-body:     'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 2rem;
-  --spacing-lg: 4rem;
-  --spacing-xl: 8rem;
-
-  --max-width: 1200px;
   --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  --container-padding: 1.25rem;
+  --max-width: 1440px;
 }
 
 /* ── 리셋 ── */
@@ -39,12 +64,21 @@ html {
 }
 
 body {
-  font-family: var(--font-sans);
-  background-color: var(--color-white);
-  color: var(--color-dark);
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* 복사 / 선택 방지 */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  /* 이미지 드래그 방지 */
+  -webkit-user-drag: none;
 }
 
 #app {
@@ -77,57 +111,70 @@ ul, ol {
 .container {
   width: 100%;
   max-width: var(--max-width);
+  padding: 0 var(--container-padding);
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
 }
 
 .section {
-  padding: var(--spacing-xl) 0;
+  padding: 5rem 0;
 }
 
 .section-label {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-green);
-  margin-bottom: var(--spacing-sm);
+  color: var(--color-accent);
+  margin-bottom: 1rem;
   display: block;
 }
 
 .section-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 500;
-  color: var(--color-black);
-  line-height: 1.2;
+  font-family: var(--font-headline);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 300;
+  color: var(--color-text);
+  line-height: 1.15;
 }
 
 /* ── 스크롤바 ── */
-::-webkit-scrollbar {
-  width: 4px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-off-white);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-green);
-  border-radius: 2px;
-}
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-accent); border-radius: 2px; }
 
 /* ── 선택 영역 ── */
 ::selection {
-  background: var(--color-green-muted);
-  color: var(--color-green);
+  background: var(--color-accent);
+  color: #fff;
 }
 
-/* ── 반응형 ── */
-@media (max-width: 768px) {
-  .section {
-    padding: var(--spacing-lg) 0;
-  }
-  .container {
-    padding: 0 1.25rem;
-  }
+/* ── 스크롤 진입 애니메이션 ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity  0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.delay-1 { transition-delay: 0.12s; }
+.reveal.delay-2 { transition-delay: 0.24s; }
+.reveal.delay-3 { transition-delay: 0.38s; }
+.reveal.delay-4 { transition-delay: 0.52s; }
+
+/* ── 반응형 (min-width 기준) ── */
+@media (min-width: 768px) {
+  :root { --container-padding: 2.5rem; }
+  .section { padding: 7rem 0; }
+}
+
+@media (min-width: 1280px) {
+  :root { --container-padding: 4rem; }
+  .section { padding: 9rem 0; }
 }

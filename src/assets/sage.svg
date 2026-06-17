@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 215 100" fill="none">
+  <!-- sage 텍스트 -->
+  <text x="2" y="78"
+        font-family="Inter, system-ui, sans-serif"
+        font-weight="700"
+        font-size="70"
+        letter-spacing="-1"
+        fill="#0A0A0A">sage</text>
+
+  <!-- 3잎 보태니컬 마크 — 교차점 (185, 44) -->
+  <line x1="185" y1="44" x2="185" y2="60"
+        stroke="#0A0A0A" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- 왼쪽 잎 -->
+  <path d="M0 0 C-7 -2,-8 -18,0 -28 C8 -18,7 -2,0 0Z"
+        transform="translate(185,44) rotate(-42)" fill="#0A0A0A"/>
+  <!-- 가운데 잎 -->
+  <path d="M0 0 C-8 -3,-9 -24,0 -36 C9 -24,8 -3,0 0Z"
+        transform="translate(185,44)" fill="#0A0A0A"/>
+  <!-- 오른쪽 잎 -->
+  <path d="M0 0 C-7 -2,-8 -18,0 -28 C8 -18,7 -2,0 0Z"
+        transform="translate(185,44) rotate(42)" fill="#0A0A0A"/>
+</svg>

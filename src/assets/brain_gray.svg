@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 18 290 218" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="brain-grad" x1="26" y1="233" x2="304" y2="22" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#ff1b00"/>
+      <stop offset="28%"  stop-color="#DCD800"/>
+      <stop offset="55%"  stop-color="#7AC132"/>
+      <stop offset="100%" stop-color="#31ABDE"/>
+    </linearGradient>
+    <clipPath id="brain-clip">
+      <path d="M88 178 C58 178,38 157,38 129 C38 109,49 92,67 84 C67 59,87 40,112 40 C119 40,127 42,134 45 C146 30,166 22,188 22 C220 22,246 39,257 65 C283 69,304 91,304 118 C304 148,281 171,251 173 C239 173,228 170,219 165 C208 169,196 171,184 171 C175 181,165 191,154 201 C162 204,170 205,178 205 C160 222,138 233,114 233 C91 233,72 222,61 204 C41 201,26 184,26 163 C26 144,38 128,55 121 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- 그라데이션 채우기 -->
+  <rect x="20" y="18" width="290" height="218" fill="url(#brain-grad)" clip-path="url(#brain-clip)"/>
+
+  <!-- 회색 아웃라인 -->
+  <path d="M88 178
+           C58 178,38 157,38 129
+           C38 109,49 92,67 84
+           C67 59,87 40,112 40
+           C119 40,127 42,134 45
+           C146 30,166 22,188 22
+           C220 22,246 39,257 65
+           C283 69,304 91,304 118
+           C304 148,281 171,251 173
+           C239 173,228 170,219 165
+           C208 169,196 171,184 171
+           C175 181,165 191,154 201
+           C162 204,170 205,178 205
+           C160 222,138 233,114 233
+           C91 233,72 222,61 204
+           C41 201,26 184,26 163
+           C26 144,38 128,55 121"
+        fill="none" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

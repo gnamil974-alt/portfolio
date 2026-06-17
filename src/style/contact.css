@@ -1,0 +1,127 @@
+.contact {
+  background: #232323;
+  scroll-margin-top: 80px;
+}
+
+/* ── 헤더 ── */
+.contact-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.contact-badge {
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  padding: 0.4rem 1.2rem;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 2rem;
+}
+
+.contact-title {
+  font-family: var(--font-headline);
+  font-size: clamp(1.7rem, 3.2vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 1.2rem;
+}
+
+.contact-desc {
+  font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ── 이메일 + 소셜 ── */
+.contact-body {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.email-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: border-color var(--transition), background var(--transition);
+  margin-bottom: 2rem;
+}
+
+.email-link:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.email-block { min-width: 0; }
+
+.email-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.5rem;
+}
+
+.email-address {
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: #fff;
+  letter-spacing: 0.02em;
+  word-break: break-all;
+}
+
+.email-arrow {
+  color: rgba(255, 255, 255, 0.3);
+  transition: color var(--transition), transform var(--transition);
+  flex-shrink: 0;
+}
+
+.email-link:hover .email-arrow {
+  color: rgba(255, 255, 255, 0.8);
+  transform: translateX(4px);
+}
+
+/* 소셜 */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem 2rem;
+}
+
+.social-link {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.35);
+  transition: color var(--transition);
+  position: relative;
+}
+
+.social-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+  transition: width var(--transition);
+}
+
+.social-link:hover { color: #fff; }
+.social-link:hover::after { width: 100%; }
+
+/* ── 반응형 ── */
+@media (max-width: 768px) {
+  .contact-desc br { display: none; }
+  .email-link { padding: 1.25rem; }
+}

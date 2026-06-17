@@ -1,47 +1,43 @@
 <template>
   <footer class="footer">
     <div class="container footer-inner">
-      <p class="footer-name">Sage.</p>
-      <p class="footer-copy">© {{ year }} Sage. All rights reserved.</p>
+      <img src="/src/assets/luma_logo_png.png" alt="Luma" class="footer-logo" />
+      <p class="footer-copy">© {{ year }} LUMA. All rights reserved.</p>
     </div>
   </footer>
+
+  <Teleport to="body">
+    <button
+      class="back-top"
+      :class="{ visible: isVisible }"
+      @click="scrollToTop"
+      aria-label="맨 위로 이동"
+    >
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+        <path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </Teleport>
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+
 const year = new Date().getFullYear()
+const isVisible = ref(false)
+
+function onScroll() {
+  isVisible.value = window.scrollY > 300
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
+onUnmounted(() => window.removeEventListener('scroll', onScroll))
 </script>
 
 <style scoped>
-.footer {
-  background: var(--color-black);
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 2rem 0;
-}
-
-.footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.footer-name {
-  font-family: var(--font-serif);
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.5);
-  font-style: italic;
-}
-
-.footer-copy {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.25);
-  letter-spacing: 0.05em;
-}
-
-@media (max-width: 580px) {
-  .footer-inner {
-    flex-direction: column;
-    gap: 0.75rem;
-    text-align: center;
-  }
-}
+@import '../../style/footer.css';
 </style>
