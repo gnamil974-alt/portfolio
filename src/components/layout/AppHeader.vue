@@ -2,7 +2,7 @@
   <header class="header" :class="{ scrolled: isScrolled, 'is-dark': isDarkSection }">
     <div class="header-inner">
       <a href="#hero" class="logo">
-        <img src="../../assets/luma_logo_png.png" alt="Luma" class="logo-img" />
+        <img src="../../assets/LUMA3.png" alt="Luma" class="logo-img" />
       </a>
 
       <nav class="nav">

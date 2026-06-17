@@ -27,7 +27,7 @@
 .logo:hover { opacity: 0.7; }
 
 .logo-img {
-  height: 47px;
+  height: 35px;
   width: auto;
   display: block;
   transition: filter var(--transition);
