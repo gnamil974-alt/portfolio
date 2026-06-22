@@ -70,7 +70,7 @@
 .swiper-track {
   display: flex;
   gap: 1.5rem;
-  padding: 0 2.5rem 1rem;
+  padding: 2rem 2.5rem 2.5rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-padding-left: 2.5rem;
@@ -84,8 +84,12 @@
 .swiper-slide {
   flex: 0 0 calc((100vw - 7rem) / 3.3);
   scroll-snap-align: start;
-  opacity: 0.6;
-  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0.5;
+  transition:
+    opacity   0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
 }
 
 .swiper-slide:hover,
@@ -93,6 +97,7 @@
   opacity: 1;
 }
 
+/* ── 카드 ── */
 .slide-thumb {
   width: 100%;
   aspect-ratio: 16 / 9;
@@ -100,11 +105,15 @@
   overflow: hidden;
   cursor: pointer;
   border-radius: 16px;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.slide-thumb:hover { transform: scale(1.02); }
+.swiper-slide:hover .slide-thumb {
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
 
+/* 이미지 */
 .slide-img-wrap {
   position: absolute;
   inset: 1rem;
@@ -117,36 +126,118 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
 }
 
+/* ── 번호 (항상 보임) ── */
+.slide-num {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.25rem;
+  font-family: var(--font-headline);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: rgba(0, 0, 0, 0.08);
+  transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  user-select: none;
+  pointer-events: none;
+}
+
+.swiper-slide:hover .slide-num,
+.swiper-slide.is-active .slide-num {
+  color: rgba(0, 0, 0, 0.18);
+}
+
+/* ── hover 정보 ── */
 .slide-info {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 1.5rem 1.25rem 1.25rem;
-  background: linear-gradient(to top, rgba(10,10,10,0.65) 0%, transparent 100%);
+  padding: 2rem 1.25rem 1.25rem;
+  background: linear-gradient(to top, rgba(8, 8, 8, 0.72) 0%, transparent 100%);
   opacity: 0;
-  transform: translateY(6px);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateY(8px);
+  transition:
+    opacity   0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.slide-thumb:hover .slide-info {
+.swiper-slide:hover .slide-info,
+.swiper-slide.is-active .slide-info {
   opacity: 1;
   transform: translateY(0);
 }
 
+.slide-info-line {
+  width: 24px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.6rem;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.swiper-slide:hover .slide-info-line,
+.swiper-slide.is-active .slide-info-line {
+  transform: scaleX(1);
+}
+
 .slide-title {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 500;
   color: #fff;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.slide-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .slide-year {
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.5);
-  letter-spacing: 0.05em;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.08em;
+}
+
+.slide-arrow {
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  transform: translateX(-4px);
+  transition: transform 0.3s, color 0.3s;
+}
+
+.swiper-slide:hover .slide-arrow {
+  transform: translateX(0);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ── 스크롤 진행 바 ── */
+.scroll-track {
+  height: 1px;
+  background: var(--color-border);
+  margin-top: 1.5rem;
+  position: relative;
+  border-radius: 1px;
+}
+
+.scroll-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: var(--color-text);
+  border-radius: 1px;
+  transition: width 0.2s linear;
+  min-width: 0;
 }
 
 /* ── 팝업 ── */
@@ -245,9 +336,7 @@
 }
 
 .popup-enter-from,
-.popup-leave-to {
-  opacity: 0;
-}
+.popup-leave-to { opacity: 0; }
 
 .popup-enter-from .popup-box,
 .popup-leave-to .popup-box {
@@ -260,12 +349,13 @@
   .portfolio-desc br { display: none; }
   .swiper-slide { flex: 0 0 calc(100vw - 5rem); }
   .slide-info { opacity: 1; transform: translateY(0); }
+  .slide-info-line { transform: scaleX(1); }
   .popup-overlay { padding: 1rem; }
 }
 
 @media (max-width: 480px) {
   .swiper-track {
-    padding: 0 1.25rem 1rem;
+    padding: 1.5rem 1.25rem 2rem;
     gap: 1rem;
     scroll-padding-left: 1.25rem;
   }
