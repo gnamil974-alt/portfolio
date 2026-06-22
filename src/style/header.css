@@ -168,4 +168,5 @@
   .nav           { display: none; }
   .menu-btn      { display: flex; }
   .mobile-menu   { display: flex; }
+  .logo-img      { height: 25px; }
 }
